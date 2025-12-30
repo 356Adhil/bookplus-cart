@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Amiri+Quran&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -40,7 +42,6 @@
   box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.3);
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Amiri+Quran&display=swap");
 .font-serif {
   font-family: "Crimson Text", serif;
 }
