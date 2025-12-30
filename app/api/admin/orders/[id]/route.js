@@ -5,10 +5,11 @@ import Order from "@/models/Order";
 
 export async function PATCH(request, { params }) {
   try {
+    const { id } = await params;
     await connectDB();
     const updateData = await request.json();
 
-    const order = await Order.findByIdAndUpdate(params.id, updateData, {
+    const order = await Order.findByIdAndUpdate(id, updateData, {
       new: true,
     });
 
@@ -30,8 +31,9 @@ export async function PATCH(request, { params }) {
 
 export async function DELETE(request, { params }) {
   try {
+    const { id } = await params;
     await connectDB();
-    const order = await Order.findByIdAndDelete(params.id);
+    const order = await Order.findByIdAndDelete(id);
 
     if (!order) {
       return NextResponse.json(
