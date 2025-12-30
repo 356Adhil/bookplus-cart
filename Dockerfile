@@ -1,4 +1,4 @@
-FROM node:18.20.5-alpine AS builder
+FROM node:20-alpine AS builder
 WORKDIR /app
 COPY package*.json .
 RUN npm install
@@ -6,7 +6,7 @@ RUN npm i puppeteer-core @sparticuz/chromium
 COPY . .
 RUN npm run build
 
-FROM node:18.20.5-alpine AS master
+FROM node:20-alpine AS master
 # Install Chromium and required dependencies  
 RUN apk add --no-cache \
     # Browser and automation
