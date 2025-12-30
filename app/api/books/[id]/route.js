@@ -5,8 +5,9 @@ import Book from "@/models/Book";
 
 export async function GET(request, { params }) {
   try {
+    const { id } = await params;
     await connectDB();
-    const book = await Book.findById(params.id);
+    const book = await Book.findById(id);
     if (!book) {
       return NextResponse.json(
         { success: false, error: "Book not found" },
@@ -24,9 +25,10 @@ export async function GET(request, { params }) {
 
 export async function PUT(request, { params }) {
   try {
+    const { id } = await params;
     await connectDB();
     const data = await request.json();
-    const book = await Book.findByIdAndUpdate(params.id, data, {
+    const book = await Book.findByIdAndUpdate(id, data, {
       new: true,
       runValidators: true,
     });
@@ -47,8 +49,9 @@ export async function PUT(request, { params }) {
 
 export async function DELETE(request, { params }) {
   try {
+    const { id } = await params;
     await connectDB();
-    const book = await Book.findByIdAndDelete(params.id);
+    const book = await Book.findByIdAndDelete(id);
     if (!book) {
       return NextResponse.json(
         { success: false, error: "Book not found" },

@@ -5,7 +5,7 @@ import { generateInvoice } from "@/lib/invoiceGenerator";
 
 export async function GET(request, { params }) {
   try {
-    const { id } = params;
+    const { id } = await params;
     console.log("Order ID:", id);
     await connectDB();
 
