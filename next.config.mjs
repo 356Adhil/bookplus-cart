@@ -9,6 +9,17 @@ const nextConfig = {
     }
     return config;
   },
+  turbopack: {
+    resolveExtensions: [
+      '.mdx',
+      '.tsx',
+      '.ts',
+      '.jsx',
+      '.js',
+      '.mjs',
+      '.json',
+    ],
+  },
 };
 
 export default nextConfig;
