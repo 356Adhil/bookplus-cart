@@ -44,7 +44,12 @@ export async function POST(request) {
       });
     }
 
+    // Generate sequential order number
+    const lastOrder = await Order.findOne().sort({ orderNumber: -1 });
+    const orderNumber = lastOrder ? lastOrder.orderNumber + 1 : 1001;
+
     const order = await Order.create({
+      orderNumber,
       customer,
       items: orderItems,
       status: "pending",

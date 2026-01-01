@@ -2,6 +2,11 @@
 import mongoose from "mongoose";
 
 const OrderSchema = new mongoose.Schema({
+  orderNumber: {
+    type: Number,
+    unique: true,
+    required: true,
+  },
   customer: {
     name: {
       type: String,
